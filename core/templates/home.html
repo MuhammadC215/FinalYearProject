@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Combat Coach</title>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Combat Coach</div>
+
+        <div class="nav-links">
+            <a href="/" class="active">Home</a>
+            <a href="/login/">Login</a>
+            <a href="/signup/">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <div class="dashboard-card">
+
+            <h1>Combat Coach</h1>
+
+            <p class="subtext">
+                Sparring decision support system for athletes and coaches
+            </p>
+
+            <hr style="margin:15px 0; opacity:0.3;">
+
+            <div class="button-grid">
+
+                <a href="/login/" class="dash-btn">Login</a>
+                <a href="/signup/" class="dash-btn">Sign Up</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

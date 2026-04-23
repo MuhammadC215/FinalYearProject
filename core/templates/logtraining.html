@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Training Log</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Combat Coach</div>
+
+        <div class="nav-links">
+            <a href="/dashboard/">Dashboard</a>
+            <a href="/profile/">Profile</a>
+            <a href="/logout/">Logout</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <div class="dashboard-card">
+
+            <h2>Log Training Session</h2>
+            <p class="subtext">Track recent sessions and workload.</p>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="status-box">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+
+            <form method="post" class="injury-form">
+                {% csrf_token %}
+
+                <label>Discipline</label>
+                <input type="text" name="discipline" required>
+
+                <label>Duration (minutes)</label>
+                <input type="number" name="duration" required>
+
+                <label>Intensity</label>
+                <select name="intensity">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+
+                <label>Notes</label>
+                <textarea name="notes"></textarea>
+
+                <button type="submit">Save Session</button>
+
+            </form>
+
+            <hr>
+
+            <h3>Previous Sessions</h3>
+
+            {% for s in sessions %}
+            <div class="item-card">
+                <strong>{{ s.discipline }}</strong><br>
+                {{ s.duration }} mins |
+                {{ s.intensity }} intensity<br>
+                {{ s.notes }}<br>
+                <small>{{ s.date }}</small>
+            </div>
+            {% empty %}
+            <p>No sessions logged yet.</p>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</body>
+
+</html>

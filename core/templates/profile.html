@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <title>Profile</title>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Combat Coach</div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/profile/">Profile</a>
+
+            {% if profile.role == "Athlete" %}
+            <a href="/athletedashboard/">Dashboard</a>
+            <a href="{% url 'recommendations' %}">Matchmaking</a>
+            <a href="/injury/">Report Injury</a>
+            {% endif %}
+
+            {% if profile.role == "Coach" %}
+            <a href="/coach-dashboard/">Dashboard</a>
+            {% endif %}
+
+            <a href="/logout/">Logout</a>
+
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <div class="profile-container">
+
+            <img src="{% static 'images/profile-avatar.jpg' %}" class="profile-image">
+
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+
+            <p class="subtext">Your Combat Coach Profile</p>
+
+            <div class="profile-grid">
+
+                <div class="profile-field">
+                    <label>First Name</label>
+                    <p>{{ request.user.first_name }}</p>
+                </div>
+
+                <div class="profile-field">
+                    <label>Last Name</label>
+                    <p>{{ request.user.last_name }}</p>
+                </div>
+
+                <div class="profile-field">
+                    <label>Username</label>
+                    <p>{{ request.user.username }}</p>
+                </div>
+
+                <div class="profile-field">
+                    <label>Email</label>
+                    <p>{{ request.user.email }}</p>
+                </div>
+
+                <div class="profile-field">
+                    <label>Role</label>
+                    <p>{{ profile.role }}</p>
+                </div>
+
+                <div class="profile-field">
+                    <label>Gym</label>
+                    <p>{{ profile.gym }}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

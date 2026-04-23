@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Athlete Dashboard</title>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Combat Coach</div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/profile/">Profile</a>
+            <a href="{% url 'recommendations' %}">Matchmaking</a>
+            <a href="/injury/">Report Injury</a>
+            <a href="/logout/">Logout</a>
+            <a href="/log-training/" class="dash-btn">Log Training Session</a>
+        </div>
+    </nav>
+
+    <!-- MAIN WRAPPER -->
+    <div class="page-wrapper">
+
+        <div class="dashboard-card">
+
+            <h1>Athlete Dashboard</h1>
+
+            <p class="subtext">
+                Welcome, {{ request.user.username }}
+            </p>
+
+            <hr style="margin:15px 0; opacity:0.3;">
+
+            <!-- ACTION BUTTONS -->
+            <div style="
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            margin-top:10px;
+        ">
+
+                <a href="/profile/" style="
+                    display:block;
+                    padding:12px;
+                    text-align:center;
+                    border-radius:8px;
+                    background:#f5c542;
+                    color:black;
+                    text-decoration:none;
+                    font-weight:600;
+               ">
+                    View Profile
+                </a>
+
+                <a href="{% url 'recommendations' %}" style="
+                    display:block;
+                    padding:12px;
+                    text-align:center;
+                    border-radius:8px;
+                    background:#2ecc71;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:600;
+               ">
+                    Find Sparring Partner
+                </a>
+
+                <a href="/injury/" style="
+                    display:block;
+                    padding:12px;
+                    text-align:center;
+                    border-radius:8px;
+                    background:#e74c3c;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:600;
+               ">
+                    Report Injury
+                </a>
+
+                <a href="/logout/" style="
+                    display:block;
+                    padding:12px;
+                    text-align:center;
+                    border-radius:8px;
+                    background:#7f8c8d;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:600;
+               ">
+                    Logout
+                </a>
+
+            </div>
+
+            <hr style="margin:20px 0; opacity:0.3;">
+
+            <!-- STATUS SECTION -->
+            <h3>Current Status</h3>
+
+            <div style="
+            margin-top:10px;
+            padding:12px;
+            border-radius:8px;
+            background:#f8f8f8;
+            text-align:left;
+        ">
+
+                <p><strong>Training Load:</strong> Moderate</p>
+                <p><strong>Injury Risk:</strong> Low</p>
+                <p><strong>Sessions This Week:</strong> 3</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

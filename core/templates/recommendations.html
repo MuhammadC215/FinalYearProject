@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Matchmaking Results</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Combat Coach</div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/profile/">Profile</a>
+            <a href="/dashboard/">Dashboard</a>
+            <a href="/injury/">Report Injury</a>
+            <a href="/logout/">Logout</a>
+        </div>
+    </nav>
+
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+
+        <div class="dashboard-card">
+
+            <!-- PAGE TITLE -->
+            <h1>Matchmaking System</h1>
+
+            <p class="subtext">
+                Sparring recommendations for {{ athlete.user.username }}
+            </p>
+
+            <hr style="margin:15px 0; opacity:0.3;">
+
+            <!-- RESULTS SECTION HEADER -->
+            <h3 style="margin-bottom:10px;">Recommended Sparring Matches</h3>
+
+            <!-- RESULTS BOX -->
+            <div style="
+            padding:10px;
+            border-radius:8px;
+            background:#f9f9f9;
+        ">
+
+                {% for r in results %}
+
+                <div style="
+                    margin:10px 0;
+                    padding:12px;
+                    border:1px solid #ddd;
+                    border-radius:8px;
+                    background:white;
+                    text-align:left;
+                ">
+
+                    <strong style="color:#111;">{{ r.athlete.user.username }}</strong>
+
+                    <p style="margin-top:8px; color:#111;">
+                        <strong>Risk Level :</strong>
+
+                        {% if r.label == "Safe" %}
+                        <span style="color:green;"><b>{{ r.label }}</b></span>
+
+                        {% elif r.label == "Medium Risk" %}
+                        <span style="color:orange;"><b>{{ r.label }}</b></span>
+
+                        {% else %}
+                        <span style="color:red;"><b>{{ r.label }}</b></span>
+                        {% endif %}
+                    </p>
+
+                    <p style="color:#555; margin-top:5px;">
+                        {{ r.reason }}
+                    </p>
+
+                </div>
+
+                {% empty %}
+                <p>No matches found.</p>
+                {% endfor %}
+
+            </div>
+
+            <!-- BACK BUTTON -->
+            <div style="margin-top:20px;">
+
+                <a href="/dashboard/" style="
+                    display:block;
+                    text-align:center;
+                    padding:12px;
+                    border-radius:8px;
+                    background:#3498db;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:600;
+               ">
+                    Back to Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+{% load static %}
+
+{% if messages %}
+{% for message in messages %}
+<div style="padding:10px; margin-bottom:10px; background:rgba(46, 204, 113, 0.2); color:#2ecc71; border-radius:8px;">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Report Injury</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Combat Coach</div>
+
+        <div class="nav-links">
+            <a href="/welcome/">Home</a>
+            <a href="/dashboard/">Dashboard</a>
+            <a href="/profile/">Profile</a>
+            <a href="/injury/" class="active">Report Injury</a>
+            <a href="/logout/">Logout</a>
+        </div>
+    </nav>
+
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+
+        <div class="dashboard-card">
+
+            <h2>Report Injury</h2>
+
+            <p class="subtext">
+                Log injury details so your coach can monitor recovery and adjust training load.
+            </p>
+
+            <hr style="margin:15px 0; opacity:0.3;">
+
+            <!-- FORM -->
+            <form method="post" class="injury-form">
+                {% csrf_token %}
+
+                <input type="text" name="injury_type" placeholder="Injury Type (e.g. Sprain, Strain)" required>
+
+                <input type="text" name="location" placeholder="Body Area (e.g. Shoulder, Knee)">
+
+                <input type="number" name="severity" min="1" max="10" placeholder="Severity (1-10)" required>
+
+                <input type="text" name="cause" placeholder="Cause (e.g. Sparring, Training)">
+
+                <textarea name="description" rows="4" placeholder="Description"></textarea>
+
+                <button type="submit">Submit Injury Report</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

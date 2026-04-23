@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coach Dashboard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Combat Coach</div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/coach-dashboard/" class="active">Dashboard</a>
+            <a href="/profile/">Profile</a>
+            <a href="/logout/">Logout</a>
+        </div>
+    </nav>
+
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+
+        <div class="dashboard-card">
+
+            <h2>Coach Dashboard</h2>
+            <p class="subtext">Athletes and sparring matches based on system recommendations</p>
+
+            <hr>
+
+            <!-- ATHLETES -->
+            <h3>Athletes in Your Gym</h3>
+
+            {% for athlete in athletes %}
+            <div style="text-align:left; padding:10px; border-bottom:1px solid #eee;">
+                <strong>{{ athlete.user.username }}</strong><br>
+                Skill: {{ athlete.skill_level }}<br>
+                Weight: {{ athlete.weight }} kg<br>
+                Experience: {{ athlete.experience_years }} years
+            </div>
+            {% empty %}
+            <p>No athletes found.</p>
+            {% endfor %}
+
+            <hr>
+
+
+            <h3>Matchmaking Results</h3>
+
+            {% for r in recommendations %}
+
+            <div style="text-align:left; padding:10px; border-bottom:1px solid #eee;">
+
+                <strong>{{ r.a1.user.username }}</strong>
+                vs
+                <strong>{{ r.a2.user.username }}</strong>
+
+                <p>Risk Score: {{ r.score }}</p>
+
+                <p>
+                    {% if r.score == 3 %}
+                    <span style="color:green;"><strong>Safe Match</strong></span>
+
+                    {% elif r.score == 2 %}
+                    <span style="color:orange;"><strong>Moderate Risk</strong></span>
+
+                    {% elif r.score == 1 %}
+                    <span style="color:red;"><strong>High Risk</strong></span>
+
+                    {% else %}
+                    <span style="color:gray;"><strong>{{ r.score }}</strong></span>
+                    {% endif %}
+                </p>
+
+                <p style="color:#666;">
+                    {{ r.reason }}
+                </p>
+
+            </div>
+
+            {% empty %}
+            <p>No matches available.</p>
+            {% endfor %}
+
+            <hr>
+
+            <h3>Recent Training Logs</h3>
+
+            {% for log in training_logs %}
+            <div class="item-card">
+
+                <strong>{{ log.athlete.user.username }}</strong><br>
+
+                {{ log.discipline }} |
+                {{ log.duration }} mins |
+                {{ log.intensity }}<br>
+
+                {{ log.notes }}<br>
+
+                <small>{{ log.date }}</small>
+
+            </div>
+
+            {% empty %}
+            <p>No training logs submitted.</p>
+            {% endfor %}
+
+            <h2>Recent Injury Reports</h2>
+
+            {% for injury in injuries %}
+            <div class="injury-box">
+                <p><strong>{{ injury.athlete.user.username }}</strong></p>
+                <p>{{ injury.injury_type }}</p>
+                <p>Severity: {{ injury.severity }}</p>
+                <p>{{ injury.description }}</p>
+            </div>
+            {% empty %}
+            <p>No injury reports submitted.</p>
+            {% endfor %}
+
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

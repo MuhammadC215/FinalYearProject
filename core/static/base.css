@@ -1,0 +1,199 @@
+/* anything with page- just uses a different way of structuring the page */
+.page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(39, 39, 39, 0.4);
+    padding-top: 100px;
+    overflow-y: auto;
+}
+
+/* Main containers */
+.page-container {
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto 50px;
+    padding: 20px;
+}
+
+/* Page headers */
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+/* Content layout */
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Main content sections */
+.page-section {
+    flex: 3;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Side sections */
+.user-section,
+.team-section,
+.info-section {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-section {
+    min-width: 300px;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card components */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-body h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card-footer {
+    padding: 20px 25px;
+    border-top: 1px solid #eaeaea;
+    background-color: #f8f9fa;
+}
+
+/* Info cards */
+.info-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.info-card p {
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Button decoration*/
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+ /* responsive button */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* buttons like vote etc. */
+.primary-btn {
+    background-color: #1890ff;
+    color: white;
+}
+
+/* buttons like navigation etc. */
+.secondary-btn {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* always adds outline for the button */
+.outline-btn {
+    background-color: transparent;
+    color: #1890ff;
+    border: 1px solid #1890ff;
+}
+
+/* buttons like view your healthcard will be centerd. */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* page changes based on display */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .team-section,
+    .user-section {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+@media print {
+    .page-wrapper {
+        background: white;
+        padding: 0;
+    }
+    
+    h1 {
+        color: black;
+    }
+    
+    .action-buttons, .nav {
+        display: none;
+    }
+    
+    .container {
+        display: block;
+    }
+    
+    .page-section,
+    .user-section,
+    .team-section {
+        box-shadow: none;
+        margin-bottom: 20px;
+    }
+}

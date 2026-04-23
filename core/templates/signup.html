@@ -1,0 +1,88 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'signup.css' %} ">
+
+<nav class="navbar">
+    <div class="logo">Combat Coach</div>
+
+    <div class="nav-links">
+        <a href="{% url 'home' %}" class="link">Home</a>
+        <a href="/login/">Login</a>
+        <a href="/signup/" class="active">Sign Up</a>
+        <a href="{% url 'about' %}" class="link">About</a>
+        <a href="{% url 'contact' %}" class="link">Contact Us</a>
+
+    </div>
+</nav>
+
+<div class="signup-container">
+
+
+    <h2>Combat Coach Sign Up</h2>
+
+    {% if success %}
+    <h3 class="success-msg">Account has been created successfully!</h3>
+
+    <a href="/" class="btn">Homepage</a>
+    <a href="/login/" class="btn">Login</a>
+
+    {% else %}
+
+    {% if error %}
+    <p class="error-msg">{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <h3>Account Info</h3>
+
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+
+        <h3>Combat Profile</h3>
+
+        <select name="role" onchange="toggleFields()" required>
+            <option value="">Select Role</option>
+            <option value="Athlete">Athlete</option>
+            <option value="Coach">Coach</option>
+        </select>
+
+        <input type="text" name="gym" placeholder="Gym Name" required>
+
+        <div id="athleteFields">
+
+            <input type="number" name="age" placeholder="Age">
+            <input type="number" name="weight" placeholder="Weight (kg)">
+            <input type="number" name="height" placeholder="Height (cm)">
+            <input type="text" name="discipline" placeholder="Discipline">
+            <input type="number" name="skill_level" placeholder="Skill Level (1-10)">
+            <input type="number" name="experience_years" placeholder="Experience Years">
+
+        </div>
+
+        <button type="submit">Create Account</button>
+
+    </form>
+
+    {% endif %}
+
+</div>
+
+<script>
+    function toggleFields() {
+        const role = document.querySelector('select[name="role"]').value;
+        const fields = document.getElementById("athleteFields");
+
+        if (role === "Coach") {
+            fields.style.display = "none";
+        } else {
+            fields.style.display = "block";
+        }
+    }
+
+    window.onload = toggleFields;
+</script>
