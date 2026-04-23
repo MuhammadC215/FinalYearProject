@@ -1,0 +1,111 @@
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/static/images/BackgroundImage3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR  */
+.navbar {
+    width: 100% ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: #111;
+    color: white;
+    box-sizing: border-box;
+}
+
+/* NAV LINKS */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: gold;
+}
+
+.nav-links .active {
+    color: gold;
+    font-weight: bold;
+}
+
+/* CENTER */
+.page-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN BOX */
+.login-container {
+    width: 420px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* FORM */
+.form-group {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: block;
+    box-sizing: border-box;
+}
+
+/* BUTTON */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}
+
+/* BOTTOM TEXT */
+.bottom-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.bottom-text a {
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.bottom-text a:hover {
+    color: gold;
+}

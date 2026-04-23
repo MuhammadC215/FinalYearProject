@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY BACKGROUND IMAGE */
+body {
+    font-family: Arial, sans-serif;
+
+    background-image: url("/static/images/BackgroundImage3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: #111;
+}
+
+
+/* NAVBAR  */
+.navbar {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    /* clean glass look */
+    background: rgba(15, 20, 30, 0.85);
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* LOGO*/
+.navbar .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+/*LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    padding: 8px 12px;
+    border-radius: 6px;
+
+    transition: 0.2s ease;
+}
+
+/* hover effect */
+.nav-links a:hover {
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+/* active page */
+.nav-links a.active {
+    background: rgba(52,152,219,0.25);
+    color: #ffffff;
+}
+
+
+body {
+    padding-top: 70px; 
+}
+
+/* CENTER WRAPPER */
+.page-wrapper {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    background: transparent;
+}
+
+
+.dashboard-card {
+    width: 85%;
+    max-width: 850px;
+
+    padding: 25px;
+    border-radius: 12px;
+
+
+    background: rgba(20, 25, 35, 0.75);
+    backdrop-filter: blur(6px);
+
+    color: #ffffff;
+
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.35);
+}
+
+/*TEXT */
+.subtext {
+    margin-top: 5px;
+    color: #cfd6e6;
+}
+
+/* BUTTONS*/
+.dash-btn {
+    display: block;
+    padding: 12px;
+    margin-top: 10px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    background: #3498db;
+    color: white;
+
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dash-btn:hover {
+    opacity: 0.85;
+}
+
+/* LIST BOXES*/
+.item-card {
+    padding: 10px;
+    margin: 10px 0;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* STATUS BOX*/
+.status-box {
+    margin-top: 10px;
+    padding: 12px;
+
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+}
+
+
+/* INJURY FORM WRAPPER*/
+.injury-form {
+    width: 100%;
+    margin-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* INPUT  */
+.injury-form input,
+.injury-form textarea {
+    display: block;
+
+    width: 100% !important;   /* FORCE FULL WIDTH */
+    max-width: 100%;
+
+    padding: 14px;
+
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.25);
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 15px;
+}
+
+/* placeholder visibility */
+.injury-form input::placeholder,
+.injury-form textarea::placeholder {
+    color: rgba(255,255,255,0.65);
+}
+
+/* focus */
+.injury-form input:focus,
+.injury-form textarea:focus {
+    outline: none;
+    border: 1px solid #3498db;
+    background: rgba(255,255,255,0.18);
+}
+
+/* BUTTON */
+.injury-form button {
+    padding: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #e74c3c;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.injury-form button:hover {
+    opacity: 0.9;
+}

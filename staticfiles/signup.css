@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    background: #111;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: gold;
+}
+
+.nav-links .active {
+    color: gold;
+    font-weight: bold;
+}
+
+/* SIGNUP BOX */
+.signup-container {
+    width: 420px;
+    background: white;
+    margin: 50px auto;
+    padding: 30px 30px 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* HEADINGS */
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin: 15px 0 10px 0;
+    font-size: 18px;
+}
+
+/* FORM FIELDS */
+input,
+select {
+    width: 95%;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+/* ATHLETE SECTION */
+#athleteFields {
+    margin-bottom: 4px;
+}
+
+/* BUTTON */
+button {
+    width: 95%;
+    padding: 12px;
+    margin-top: 2px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    top: -4px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #333;
+}
+
+/* SUCCESS / ERROR */
+.success-msg {
+    color: green;
+    margin-bottom: 20px;
+}
+
+.error-msg {
+    color: red;
+    margin-bottom: 15px;
+}
+
+/* SUCCESS PAGE BUTTONS */
+.btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 12px;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #333;
+}
